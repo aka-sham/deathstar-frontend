@@ -1,33 +1,61 @@
 {
-  "name": "vite-vue3-tailwind-starter",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
-  },
-  "dependencies": {
-    "@vueuse/head": "^0.7.9",
-    "vue": "^3.2.38",
-    "vue-router": "^4.1.5"
-  },
-  "devDependencies": {
-    "@headlessui/vue": "^1.7.0",
-    "@heroicons/vue": "^2.0.10",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/line-clamp": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.7",
-    "@vitejs/plugin-vue": "^3.1.0",
-    "@vue/tsconfig": "^0.1.3",
-    "autoprefixer": "^10.4.8",
-    "prettier-plugin-tailwindcss": "^0.1.13",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.2",
-    "unplugin-auto-import": "^0.11.2",
-    "unplugin-vue-components": "^0.22.4",
-    "unplugin-vue-router": "^0.2.1",
-    "vite": "^3.1.0",
-    "vue-tsc": "^0.40.9"
-  }
+    "name": "deathstar-frontend",
+    "version": "1.0.0",
+    "author": {
+        "name": "Sébastien Metzger",
+        "email": "sebastien.metzger@nomogi.org"
+    },
+    "private": true,
+    "engines": {
+        "node": "16.17.0"
+    },
+    "scripts": {
+        "dev": "vite --host",
+        "build": "vue-tsc --noEmit && vite build",
+        "serve": "vite preview",
+        "lint": "eslint --ext .ts,vue --ignore-path .gitignore ."
+    },
+    "dependencies": {
+        "@vueuse/head": "^0.7.9",
+        "vue": "^3.2.38",
+        "vue-router": "^4.1.5"
+    },
+    "devDependencies": {
+        "@headlessui/vue": "^1.7.0",
+        "@heroicons/vue": "^2.0.10",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/line-clamp": "^0.4.2",
+        "@tailwindcss/typography": "^0.5.7",
+        "@typescript-eslint/eslint-plugin": "^5.36.2",
+        "@typescript-eslint/parser": "^5.36.2",
+        "@vitejs/plugin-vue": "^3.1.0",
+        "@vue/eslint-config-prettier": "^7.0.0",
+        "@vue/eslint-config-typescript": "^11.0.1",
+        "@vue/tsconfig": "^0.1.3",
+        "autoprefixer": "^10.4.8",
+        "eslint": "^8.23.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-vue": "^9.4.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.7.1",
+        "prettier-plugin-tailwindcss": "^0.1.13",
+        "tailwindcss": "^3.1.8",
+        "typescript": "^4.8.2",
+        "unplugin-auto-import": "^0.11.2",
+        "unplugin-vue-components": "^0.22.4",
+        "unplugin-vue-router": "^0.2.1",
+        "vite": "^3.1.0",
+        "vue-tsc": "^0.40.9"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,vue}": "eslint --fix",
+        "*": "prettier -w -u"
+    }
 }
