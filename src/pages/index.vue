@@ -1,6 +1,6 @@
 <template>
-    <div>{{ probability }}</div>
-    <div class="bg-gray-50">
+    <div class="flex flex-col items-center">
+        <StatDisplay :stats="[{ name: 'Probability to save Endor', stat: probability }]" />
         <DropZone @files-dropped="uploadFile" />
     </div>
 </template>
@@ -8,6 +8,7 @@
 <script setup>
     import { useFetch } from "@vueuse/core"
     import DropZone from "../components/DropZone.vue"
+    import StatDisplay from "../components/StatDisplay.vue"
 
     useHead({
         title: "Home"
