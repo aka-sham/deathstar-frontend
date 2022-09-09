@@ -1,46 +1,62 @@
-# Vite, Vue3, Tailwind CSS (single-page app)
+# Death Star Front - C3PO
 
-![Vite, Vue, Tailwind CSS](https://user-images.githubusercontent.com/11320080/111277027-a9384c00-8640-11eb-8323-21889bd7c609.png)
+The Death Star Frontend project aka C3PO is a VueJS 3 using Vite and Tailwind CSS. Its purpose is to display the probability to save Endor from Death Star by providing a json file containing the countdown and the bounty hunters location.
 
-This starter template includes:
+This project is part of Giskard technical test.
 
--   [Vite 3](https://vitejs.dev/guide/)
--   [Vue 3](https://vuejs.org/guide/introduction.html)
--   [Tailwind CSS 3](https://tailwindcss.com/docs/configuration)
--   [Vue Router](https://github.com/vuejs/router)
--   [@vueuse/head](https://github.com/vueuse/head) - document head manager
--   [TypeScript](https://vuejs.org/guide/typescript/overview.html) - write vue files as `<script setup>` or `<script setup lang="ts">`
--   [Inter var font](https://github.com/rsms/inter) (self-hosted, woff2, v3.19, with 'preload' attr, check out index.html)
--   [Headless UI](https://headlessui.com/vue/menu) - unstyled UI components, designed to integrate beautifully with Tailwind CSS
--   [Heroicons](https://github.com/tailwindlabs/heroicons) - beautiful hand-crafted SVG icons,
-    by the makers of Tailwind CSS
--   [prettier-plugin-tailwindcss](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) - automatic class sorting with Prettier
+## Getting started
 
-First-party plugins needed for Tailwind UI:
+### Prerequisites
+- Node v16.17.0
+- pnpm 7.11.0
 
--   [tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms)
--   [tailwindcss/line-clamp](https://github.com/tailwindlabs/tailwindcss-line-clamp)
--   [tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)
--   [tailwindcss/aspect-ratio](https://github.com/tailwindlabs/tailwindcss-aspect-ratio)
+By using [NVM](https://github.com/nvm-sh/nvm) you will be able to install Node v16.17.0. Then install [pnpm](https://pnpm.io/installation).
 
-Unplugin Utilities:
+Finally in the root directory type the following commands in your terminal:
 
--   [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) - components auto importing
--   [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) - auto import the most used APIs
--   [unplugin-vue-router](https://github.com/posva/unplugin-vue-router) - file based routing for vue-router
-
-### Getting Started
-
-```sh
-npx degit web2033/vite-vue3-tailwind-starter vvt-app
-cd vvt-app
+```bash
+nvm use
+pnpm install
 ```
 
-```sh
-npm i
-npm run dev
-npm run build
-npm run serve
+### Usage
+The Frontend communicates with the Death Star Backend project and you must start it first before using C3PO. You also need to create an *.env* file in the root directory with your Death Star Backend URL:
+
+```bash
+VITE_BACKEND_URL=http://127.0.0.1:8000
 ```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/web2033/vite-vue3-tailwind-starter)
+Then launch C3PO and your page will open automatically:
+```bash
+pnpm dev
+```
+
+Drop an *empire.json* like the following one:
+
+```json
+{
+    "countdown": 8,
+    "bounty_hunters": [
+        {
+            "planet": "Hoth",
+            "day": 6
+        },
+        {
+            "planet": "Hoth",
+            "day": 7
+        },
+        {
+            "planet": "Hoth",
+            "day": 8
+        }
+    ]
+}
+```
+
+**Note:** there is 1 example file in the *examples* directory.
+
+## Git branching model and workflow
+
+To work efficiently together with Git, OneFlow has been chosen. See [OneFlow – a Git branching model and workflow](https://www.endoflineblog.com/oneflow-a-git-branching-model-and-workflow).
+
+Because this repository is using 2 branches (develop and main), the chosen workflow is the variation with 2 branches with Option #3 to finish a feature branch.
